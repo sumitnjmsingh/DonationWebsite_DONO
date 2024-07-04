@@ -16,6 +16,7 @@ import Other_Cause from "./components/Other_Cause.jsx"
 import Mydonation from "./components/Mydonation.jsx"
 import Payment from "./components/Payment.jsx"
 import Updates from "./components/Updates.jsx"
+import { Toaster } from "react-hot-toast";
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
           
           
       </Routes>  
+      <Toaster />
         
      </Router>   
     

@@ -6,6 +6,8 @@ import {
     refreshAccessToken,
     checkAccessToken,
     medical_inf,
+    ngo_inf,
+    otherCause_inf,
    
 } from "../controllers/user.controller.js";
 import { chatController} from "../controllers/chat.controller.js"
@@ -21,10 +23,21 @@ router.route("/register").post(
     upload.single('avatar'),
     registerUser
     )
+
 router.route("/medical").post(
     verifyJWT,
     upload.single('avatar'),
     medical_inf)
+
+router.route("/ngo_charity").post(
+        verifyJWT,
+        upload.single('avatar'),
+        ngo_inf)
+
+router.route("/otherCause").post(
+    verifyJWT,
+    upload.single('avatar'),
+    otherCause_inf)
 
 router.route("/login").post(loginUser)
 

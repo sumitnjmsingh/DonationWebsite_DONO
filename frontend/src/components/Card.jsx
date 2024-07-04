@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Card({img,purpose,organiser}) {
+function Card({img,purpose="Purpose not mentioned",organiser="John Doe",amount="20,73,346"}) {
   return (
     <div>
         <div className='flex flex-col p-3 border-solid border-black border-[2px] rounded-[10px] gap-4 bg-slate-200 shadow-2xl'>
@@ -12,7 +12,7 @@ function Card({img,purpose,organiser}) {
                     <div><p>by {organiser}</p></div>
                 </div>
                 <div className='flex flex-col'>
-                     <h1 className='text-slate-500'><span className='font-bold text-black '>₹20,73,346</span>  raised</h1>
+                     <h1 className='text-slate-500'><span className='font-bold text-black '>₹{amount}</span>  raised</h1>
                      <p className='text-slate-500'>Last donation 4 hours ago</p>
                 </div>
             </div>

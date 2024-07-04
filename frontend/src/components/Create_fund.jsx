@@ -2,6 +2,7 @@ import React,{useState,useRef} from 'react'
 import Header from "./Header.jsx"
 import {Link} from "react-router-dom"
 import { FaSuitcaseMedical } from "react-icons/fa6";
+import toast from "react-hot-toast";
 
 function Create_fund() {
  
@@ -54,8 +55,8 @@ const res=await fetch("http://localhost:3000/api/users/medical",{
   body:formData
 });
  const data=await res.json();
-
-  console.log(data.medical.avatar);
+  toast("Data saved Successfully")
+  // console.log(data.medical.avatar);
 
 
 };

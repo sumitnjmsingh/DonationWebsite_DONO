@@ -54,7 +54,7 @@ function Landing() {
         {chat_tog?(<Chat_ai callback={setchat_tog}/>):(
           <button onClick={()=>{
             setchat_tog(true)
-          }} className=' fixed bottom-[20px] right-[20px]  w-[50px] h-[50px] rounded-full text-10px  p-1'><BsChatTextFill className='text-green-800 text-4xl' /></button>
+          }} className=' fixed bottom-[20px] right-[20px] z-[9999] w-[50px] h-[50px] rounded-full text-10px  p-1'><BsChatTextFill className='text-green-800 text-4xl' /></button>
         )}
         
         <div className='w-screen h-[380px] bg-[url("girl2.jpg")] bg-no-repeat bg-cover bg-center relative   '>
@@ -140,8 +140,8 @@ function Landing() {
 
                            </div>
                        </div>
-                       <div className='flex flex-wrap mt-4 gap-4'>
-                          {  patients
+                       <div className='flex flex-wrap mt-4 gap-4 relative'>
+                          {/* {  patients
                           .filter(img => img.type == `${types}`)
                           .map((img)=>{
                                  return(
@@ -151,15 +151,15 @@ function Landing() {
                                   )
                           })
                            
-                         }
-                         {/* {
+                         } */}
+                         {
                           medicalData.map((img,index)=>{
                             return(
                                  <div className='lg:w-[27%] w-[80%]' key={index}>
-                                        <Card  img={img.avatar} purpose={img.qualification} organiser={img.userId.name}  />
+                                        <Card  img={img.avatar} purpose={img.purpose} organiser={img.organiser} amount={img.amount}  />
                                   </div>
                              )
-                     }) } */}
+                     }) }
                           
                        </div>
                  </div>
