@@ -6,11 +6,11 @@ amount:{
     type:String,
     required:true
 },
-relation:{
+purpose:{
     type:String,
     required:true
 },
-qualification:{
+organiser:{
     type:String,
     required:true
 },

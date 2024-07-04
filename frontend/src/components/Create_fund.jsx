@@ -13,7 +13,7 @@ function Create_fund() {
 
 
   const [USER,setUser]=useState({
-    amount:"",relation:"",qualification:"",employmentStatus:"",mob:"",category:"",
+    amount:"",organiser:"",purpose:"",employmentStatus:"",mob:"",category:"",
   })
   let name,value
   const handleinput=(e)=>{
@@ -39,11 +39,11 @@ const handleformsubmit=async (e)=>{
   const formData = new FormData();
   formData.append('avatar',avatar );
   formData.append('amount', USER.amount);
-  formData.append('relation', USER.relation);
+  formData.append('organiser', USER.organiser);
   formData.append('employmentStatus', USER.employmentStatus);
   formData.append('mob', USER.mob);
   formData.append('category', USER.category);
-  formData.append('qualification', USER.qualification);
+  formData.append('purpose', USER.purpose);
  
 
 
@@ -92,10 +92,10 @@ const res=await fetch("http://localhost:3000/api/users/medical",{
                      <input name="amount" value={USER.amount} onChange={handleinput} placeholder='How much do you want to raise?' className='w-[90%] border-b-solid border-b-black border-b-[1px] outline-none p-1'></input>
                 </div>
                 <div className='flex items-start justify-center p-1 w-[90%]'>
-                     <input name="relation" value={USER.relation} onChange={handleinput} placeholder='The Patient is my...' className=' w-[90%] border-b-solid border-b-black border-b-[1px] outline-none p-1'></input>
+                     <input name="organiser" value={USER.organiser} onChange={handleinput} placeholder='Fund Raiser name..' className=' w-[90%] border-b-solid border-b-black border-b-[1px] outline-none p-1'></input>
                 </div>
                 <div className='flex items-start justify-center p-1 w-[90%] '>
-                     <input name="qualification" value={USER.qualification} onChange={handleinput} placeholder='Your Education Qualification' className=' w-[90%] border-b-solid border-b-black border-b-[1px] outline-none p-1'></input>
+                     <input name="purpose" value={USER.purpose} onChange={handleinput} placeholder='Your Purpose for fund' className=' w-[90%] border-b-solid border-b-black border-b-[1px] outline-none p-1'></input>
                 </div>
                 <div className='flex items-start justify-center p-1 w-[90%] '>
                      <input name="employmentStatus" value={USER.employmentStatus} onChange={handleinput} placeholder='Your Employment Status' className=' w-[90%] border-b-solid border-b-black border-b-[1px] outline-none p-1'></input>

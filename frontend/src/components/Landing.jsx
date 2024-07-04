@@ -16,6 +16,24 @@ function Landing() {
        const[types,settypes]=useState('Medical');
        const [isAuthenticated, setIsAuthenticated] = useState(null);
        const [chat_tog,setchat_tog]=useState(false)
+       const [search_v,setsearch_v]=useState("");
+
+       const [medicalData, setMedicalData] = useState([]);
+
+    useEffect(() => {
+        const fetchMedicalData = async () => {
+            try {
+                const response = await fetch(`http://localhost:3000/api/medical/category/${types}`);
+                const data = await response.json();
+                setMedicalData(data);
+                console.log(data)
+            } catch (error) {
+                console.error('Error fetching medical data:', error);
+            }
+        };
+
+        fetchMedicalData();
+    }, [types]);
 
        useEffect(() => {
          const checkAuth = async () => {
@@ -82,7 +100,7 @@ function Landing() {
             <div className='lg:w-[70%] w-2/3 '>
                  <div className='flex flex-col  p-3 pt-5 '>
                        <div className='flex flex-col'>
-                           <div className='flex items-center p-1 gap-2 border-solid border-slate-500 border-[2px] w-[81%] rounded-[10px]' ><input placeholder='Search for Fundraisors' className='w-[100%] h-[40px] border-transparent p-2 outline-none'></input ><div className='text-2xl p-1'><FaSearch /></div></div>
+                           <div className='flex items-center p-1 gap-2 border-solid border-slate-500 border-[2px] w-[81%] rounded-[10px]' ><input name="search_v" value={search_v} onChange={(e)=>{setsearch_v(e.target.value)}} placeholder='Search for Fundraisors' className='w-[100%] h-[40px] border-transparent p-2 outline-none'></input ><div onClick={()=>{settypes(search_v)}} className='text-2xl p-1'><FaSearch /></div></div>
                            <div className='flex flex-wrap mt-2 gap-1 '>
                                <h2 className='font-serif text-[18px]'>Showing fundraisers for</h2>
 
@@ -134,6 +152,15 @@ function Landing() {
                           })
                            
                          }
+                         {/* {
+                          medicalData.map((img,index)=>{
+                            return(
+                                 <div className='lg:w-[27%] w-[80%]' key={index}>
+                                        <Card  img={img.avatar} purpose={img.qualification} organiser={img.userId.name}  />
+                                  </div>
+                             )
+                     }) } */}
+                          
                        </div>
                  </div>
             </div>

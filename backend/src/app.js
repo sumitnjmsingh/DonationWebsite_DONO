@@ -23,6 +23,8 @@ app.use(express.static("public"))
 app.use(cookieParser())
 
 import userRouter from './routes/user.routes.js'
+import medicalRouter from './routes/medical.routes.js';
+app.use("/api/medical", medicalRouter);
 
 
 app.use("/api/users", userRouter)

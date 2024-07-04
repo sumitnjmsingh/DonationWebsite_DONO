@@ -31,11 +31,11 @@ const generateAccessAndRefereshTokens = async(userId) =>{
 
 const medical_inf=asyncHandler(async(req,res)=>{
 //   console.log(req.body)
-  const {amount,relation,qualification,employmentStatus,mob,category}=req.body;
+  const {amount,purpose,organiser,employmentStatus,mob,category}=req.body;
 
-  [amount,relation,qualification,employmentStatus,mob,category]
+  [amount,purpose,organiser,employmentStatus,mob,category]
   if (
-    [amount,relation,qualification,employmentStatus,mob,category].some((field) => field?.trim() === "")  //If user is null or undefined, accessing user.name directly would throw an error. However, with user?.name, if user is null or undefined, username will be undefined instead of throwing an error.
+    [amount,purpose,organiser,employmentStatus,mob,category].some((field) => field?.trim() === "")  //If user is null or undefined, accessing user.name directly would throw an error. However, with user?.name, if user is null or undefined, username will be undefined instead of throwing an error.
 ) {
     throw new ApiError(400, "All fields are required")
 }
@@ -44,7 +44,7 @@ const avatarLocalPath = req.file.path;
     if (!avatarLocalPath) {
         throw new ApiError(400, "Avatar on server file is required")
     }
-   
+   console.log("this is avatar localpath",avatarLocalPath)
     const avatar1 = await uploadOnCloudinary(avatarLocalPath)
     
     if (!avatar1) {
@@ -55,8 +55,8 @@ const avatarLocalPath = req.file.path;
         
         avatar: avatar1.url,
         amount,
-        relation,
-        qualification,
+        purpose,
+        organiser,
         employmentStatus,
         mob,
         category,
