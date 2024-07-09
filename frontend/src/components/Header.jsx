@@ -52,6 +52,7 @@ const LogoutResponse= async()=>{
                             <option value="create_fund">Medical Treat</option>
                             <option value="NGO_Charity">NGO/Charity</option>
                             <option value="Other_Cause">Other Cause</option>
+                            <option value="DonationForm">Donation Form</option>
                      </select>
                   </div>
                 <Link to="/working_procedure"><h2 className='font-serif'>How It Works </h2></Link>

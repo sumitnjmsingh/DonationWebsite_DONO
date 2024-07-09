@@ -3,6 +3,7 @@ import {ApiError} from "../utils/ApiError.js"
 import { User} from "../models/userschema.js"
 import { Medical} from "../models/medicalschema.js"
 import {Ngo} from "../models/ngoschema.js"
+import {DonationForm} from "../models/donationFormschema.js"
 import {OtherCause} from "../models/otherCauseschema.js"
 import {uploadOnCloudinary} from "../utils/cloudinary.js"
 import { ApiResponse } from "../utils/ApiResponse.js";
@@ -150,6 +151,53 @@ const ngo_inf=asyncHandler(async(req,res)=>{
         })
     
 
+
+const donation_inf=asyncHandler(async(req,res)=>{
+            //   console.log(req.body)
+              const { amount,employmentStatus,mob,qualification}=req.body;
+             
+              
+              if (
+                [amount,employmentStatus,mob,qualification].some((field) => field?.trim() === "")  //If user is null or undefined, accessing user.name directly would throw an error. However, with user?.name, if user is null or undefined, username will be undefined instead of throwing an error.
+            ) {
+                throw new ApiError(400, "All fields are required")
+            }
+            const userid=  req.user._id;
+            
+               
+            
+                const Donationform = await DonationForm.create({
+                    
+                    
+                    amount,employmentStatus,mob,qualification,
+                    userId:userid       
+                    
+                })
+                return res
+                .status(200)
+                .json(
+                   
+                        {
+                            redirectTo: "/Updates",   Donationform: Donationform,
+                        }
+                        
+                    )
+            
+            
+            })
+
+const donation= asyncHandler( async (req, res) => {
+    
+        try {
+            // const category = req.params.category.toUpperCase(); // Ensure category is in uppercase
+        const userid=req.user._id;
+            const donationData = await DonationForm.find({ userId: userid });
+            res.json(donationData);
+        } catch (error) {
+            res.status(500).json({ message: 'Server Error', error: error.message });
+        }
+    
+})
 
 
 const registerUser = asyncHandler( async (req, res) => {
@@ -395,4 +443,6 @@ export {
     medical_inf,
     ngo_inf,
     otherCause_inf,
+    donation_inf,
+    donation,
 }

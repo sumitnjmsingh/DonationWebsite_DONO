@@ -8,6 +8,8 @@ import {
     medical_inf,
     ngo_inf,
     otherCause_inf,
+    donation_inf,
+    donation,
    
 } from "../controllers/user.controller.js";
 import { chatController} from "../controllers/chat.controller.js"
@@ -33,7 +35,14 @@ router.route("/ngo_charity").post(
         verifyJWT,
         upload.single('avatar'),
         ngo_inf)
-
+router.route("/Donation").post(
+            verifyJWT,
+            upload.single('avatar'),
+            donation_inf)
+router.route("/donation").get(
+                verifyJWT,
+                
+                donation,)
 router.route("/otherCause").post(
     verifyJWT,
     upload.single('avatar'),

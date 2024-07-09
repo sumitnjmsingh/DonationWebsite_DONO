@@ -8,6 +8,25 @@ function Home() {
   const [isAuthenticated, setIsAuthenticated] = useState(null);
   var profilepic=localStorage.getItem("profilepic")
   var username=localStorage.getItem("username")
+  const [amount,setamount]=useState([]);
+
+  useEffect(() => {
+    const fetchamount = async () => {
+        try {
+            const response = await fetch(`http://localhost:3000/api/users/donation`,{
+              credentials: 'include',
+            });
+            const data = await response.json();
+            setamount(data);
+            
+        } catch (error) {
+            console.error('Error fetching amount data:', error);
+        }
+    };
+
+    fetchamount();
+},[]);
+
     useEffect(() => {
       const checkAuth = async () => {
         const authStatus = await AuthCheck();
@@ -43,7 +62,10 @@ function Home() {
             
                      <div className='p-3 rounded-md backdrop-blur-md bg-white/50 h-[40vh] w-[40vh] '>
                          <div className='p-1 w-full h-[10%]'><h1 className='flex justify-center items-center tracking-wider font-serif font-semibold '>RATING</h1></div>
-                         <div className='w-full h-[90%]  overflow-auto font-serif'> No Rating To Show... <br/> Donate More For Higher  Rating</div>
+                        { amount?(<div className='w-full h-[90%]  overflow-auto font-serif'>  {amount.map((item,index)=>{
+                          return (<p key={index} className='text-black'>{index+1}. Your New Rating is... <br/><span className='text-2xl text-green-500'>{item.amount/100}   
+                       </span><br/> Donate More For Higher  Rating <br/></p>) })}</div>):(<div className='w-full h-[90%]  overflow-auto font-serif'> No Rating To Show... <br/> Donate More For Higher  Rating</div>)}
+                       
                       </div>
         </div>
         <Footer2/>

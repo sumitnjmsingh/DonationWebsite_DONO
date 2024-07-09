@@ -12,6 +12,7 @@ import Header from "./components/Header.jsx"
 import Footer2 from "./components/Footer2.jsx"
 import Create_fund from "./components/Create_fund.jsx"
 import NGO_Charity from "./components/NGO_Charity.jsx"
+import DonationForm from "./components/DonationForm.jsx"
 import Other_Cause from "./components/Other_Cause.jsx"
 import Mydonation from "./components/Mydonation.jsx"
 import Payment from "./components/Payment.jsx"
@@ -32,6 +33,7 @@ function App() {
           <Route  path="/Updates" element={<Updates/>}></Route> 
           <Route  path="/Login" element={<Login/>}></Route> 
           <Route  path="/Home" element={<Home/>}></Route> 
+          <Route  path="/DonationForm" element={<DonationForm/>}></Route> 
           <Route  path="/Mydonation" element={<Mydonation/>}></Route> 
           <Route path="/Donation_feed"  element={<Landing/>}></Route>
           <Route path="/working_procedure" element={<Work/>}/>

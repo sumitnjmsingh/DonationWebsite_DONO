@@ -6,7 +6,7 @@ const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
 let chat = null
 
-const aboutMe = "You are a chatbot created by Note-Corner backend System engineers. You are designed to help users with funding related issues only."
+const aboutMe = "You are a chatbot created by Dono backend System engineers. You are designed to help users with funding related issues only."
 
 async function getGeminiResponse(message) {
   if (!chat) {

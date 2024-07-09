@@ -182,7 +182,7 @@ const [err,seterr]=useState("")
                 <div className='grid grrid-cols-1 grid-rows-4 lg:gap-2 gap-1'>
                       
                       <div className='grid grid-cols-[10%_90%] '>
-                           <div className='text-white lg:text-[20px] text-[15px]  flex justify-center items-start mx-[2px]'><MdAlternateEmail /></div>
+                           <div className='text-white lg:text-[20px] text-[15px]  flex justify-center items-start mx-[2px]'><CgProfile /></div>
                            <div className='flex flex-col justify-center '>
                                  <div className='flex justify-start items-center'><label className='text-white lg:text-[14px] text-[10px]  font-serif' >Full Name</label></div>
                                  <div className='flex justify-start items-center '><input onChange={handleinput}  name="name" id="name" autoComplete='off'   value={USER.name} type="text" className='w-[90%] h-[60%] bg-transparent border-b-solid outline-none border-b-purple-300 border-b-[1px] rounded-[10px] text-white px-1'></input></div>

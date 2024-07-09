@@ -10,6 +10,7 @@ import { AiFillEye } from "react-icons/ai";
 import { FaRegEye } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import {motion} from "framer-motion";
+import { SiGravatar } from "react-icons/si";
 
 
 
@@ -189,7 +190,7 @@ const res=await fetch("http://localhost:3000/api/users/register",{
                            <div className='text-white lg:text-[20px] text-[15px]  flex justify-start items-start mx-[2px]' ><button onClick={handle1}>{(tog1)?<FaRegEyeSlash/>:<FaRegEye />}</button></div>
                       </div>
                       <div className='grid grid-cols-[10%_80%_10%]'>
-                           <div className='text-white lg:text-[20px] text-[15px] flex justify-center items-start mx-[2px]'><CiLock /></div>
+                           <div className='text-white lg:text-[20px] text-[15px] flex justify-center items-start mx-[2px]'><SiGravatar /></div>
                            <div className='flex flex-col justify-center '>
                                 <div className='flex justify-start items-center'><label className='text-white lg:text-[14px] text-[10px]  font-serif' >Avatar</label></div>
                                 <div className='flex justify-start items-center '><input onChange={handleFileChange}  name="avatar" id="avatar" autoComplete='off'   value={USER.avatar}  type="file" className='w-[100%] h-[100%] bg-transparent border-b-solid outline-none border-b-purple-300 border-b-[1px] rounded-[10px] text-white px-1'></input></div>
