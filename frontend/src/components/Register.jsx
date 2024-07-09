@@ -79,8 +79,7 @@ const res=await fetch("http://localhost:3000/api/users/register",{
 });
  const data=await res.json();
  localStorage.setItem("avatar",data.data.avatar)
-
-
+ localStorage.setItem("username1",data.user.name);
  
  
  navigate(data.redirectTo);

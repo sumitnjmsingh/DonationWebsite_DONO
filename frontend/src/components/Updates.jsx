@@ -60,29 +60,29 @@ function Updates() {
 
         <div className='px-[2vw] w-full mb-[3vw]'>
             <div className='px-[3vw] font-serif text-[3vw]'>How to Donate?</div>
-            <div className='flex flex-wrap justify-center gap-[2vw]'>
-                  <div  className='bg-[#31bbc5] p-[4vw] rounded-md'>
+            <div className='flex flex-wrap justify-center  gap-[1.5vw]'>
+                  <div  className='bg-[#79cdd3ec] p-[3vw] rounded-md'>
                     <div></div>
-                    <h1 className='text-[2vw] font-semibold font-serif'>Select campaign or causes</h1>
+                    <h1 className='text-[1.5vw] font-semibold font-serif'>Select campaign or causes</h1>
                     <p>Find a campaign that you wanna help.</p> 
 
                   </div>
-                  <div  className='bg-[#31bbc5] p-[4vw] rounded-md'>
+                  <div  className='bg-[#79cdd3ec] p-[3vw] rounded-md'>
                   <div></div>
-                    <h1 className='text-[2vw] font-semibold font-serif'>Donate now or monthly</h1>
+                    <h1 className='text-[1.5vw] font-semibold font-serif'>Donate now or monthly</h1>
                     <p>Choose the option of donating now or donating on a monthly basis.</p> 
                   </div>
-                  <div  className='bg-[#31bbc5] p-[4vw] rounded-md'>
+                  <div  className='bg-[#79cdd3ec] p-[3vw] rounded-md'>
                   <div></div>
-                    <h1 className='text-[2vw] font-semibold font-serif'>Get regular updates</h1>
+                    <h1 className='text-[1.5vw] font-semibold font-serif'>Get regular updates</h1>
                     <p>Post your donation get regular updates on how they are doing.</p> 
                   </div>
             </div> 
-            <div className='w-full flex items-center justify-center p-[1vw]'><Link to="/Donation_feed" className='bg-green-500 p-[1vw] rounded-[50px] px-[3vw]'>Contribute Now!</Link></div>
+            <div className='w-full flex items-center justify-center p-[1vw]'><Link to="/Donation_feed" className='bg-neutral-600 p-[1vw] rounded-[50px] px-[3vw] text-white'>Contribute Now!</Link></div>
         </div>
 
         <div className='w-full px-[2vw]'>
-           <video class="relative  rounded-[30px] mt-[4vw] w-[100%] " src="./video.mp4" autoplay loop muted ></video>
+           <video class="relative  rounded-[30px] mt-[4vw] w-[100%] " src="./video.mp4" autoPlay loop muted ></video>
         </div>
 
 
