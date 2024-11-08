@@ -41,9 +41,6 @@ function Home() {
   return (
     isAuthenticated?(<div >
           <Header/>
-        {/* <div className="relative top-0 z-[-2] h-[100%] w-screen bg-neutral-950 bg-[radial-gradient(ellipse_30%_80%_at_50%_40%,rgba(120,119,198,0.5),rgba(255,255,255,0))]"></div> */}
-       
-
         <div className=' px-1 flex flex-col flex-wrap w-screen  justify-center  items-start gap-3 bg-neutral-950 bg-[radial-gradient(ellipse_30%_80%_at_50%_40%,rgba(120,119,198,0.5),rgba(255,255,255,0))]'>
              <div className='flex flex-wrap justify-start items-center p-4'><h1 className='text-white text-5xl font-serif'>Hello {username}</h1></div>
             <div className='flex flex-wrap justify-start items-center p-4'> <p className='text-white text-xl font-thin'>This is your profile page. You can see the progress you've made with your work and manage your projects or assigned tasks.

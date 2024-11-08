@@ -86,7 +86,6 @@ const [err,seterr]=useState("")
   });
    const data=await res.json();
    if(res.status==200){
-    // console.log(data.user.avatar)
     localStorage.setItem("profilepic",data.user.avatar);
     localStorage.setItem("username",data.user.name);
       navigate(data.redirectTo);

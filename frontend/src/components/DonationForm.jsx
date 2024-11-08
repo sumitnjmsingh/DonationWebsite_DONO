@@ -36,7 +36,7 @@ function DonationForm() {
     
      formData.append('qualification', USER.qualification);
     
-//    console.log(formData)
+
    
    const res=await fetch("http://localhost:3000/api/users/Donation",{
      method:"POST",
@@ -46,7 +46,6 @@ function DonationForm() {
    });
     const data=await res.json();
      toast("Data saved Successfully")
-     // console.log(data.ngo_charity);
    
    
    };

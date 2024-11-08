@@ -141,7 +141,7 @@ function Landing() {
                            </div>
                        </div>
                        <div className='flex flex-wrap mt-4 gap-4 relative'>
-                          {/* {  patients
+                          {  patients
                           .filter(img => img.type == `${types}`)
                           .map((img)=>{
                                  return(
@@ -151,7 +151,7 @@ function Landing() {
                                   )
                           })
                            
-                         } */}
+                         }
                          {
                           medicalData.map((img,index)=>{
                             return(

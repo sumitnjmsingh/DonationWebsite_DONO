@@ -70,17 +70,11 @@ const Postdata=async (e)=>{
 
 const res=await fetch("http://localhost:3000/api/users/register",{
   method:"POST",
-  // headers:{
-  //   "Content-Type":"application/json"
-  // },
-  // body:JSON.stringify({
-  //   name,email,password,conpassword
-  // })
   body:formData
 });
  const data=await res.json();
  localStorage.setItem("avatar",data.data.avatar)
- localStorage.setItem("username1",data.user.name);
+ localStorage.setItem("username1",data.data.name);
  
  
  navigate(data.redirectTo);
@@ -191,10 +185,35 @@ const res=await fetch("http://localhost:3000/api/users/register",{
                       </div>
                       <div className='grid grid-cols-[10%_80%_10%]'>
                            <div className='text-white lg:text-[20px] text-[15px] flex justify-center items-start mx-[2px]'><SiGravatar /></div>
-                           <div className='flex flex-col justify-center '>
-                                <div className='flex justify-start items-center'><label className='text-white lg:text-[14px] text-[10px]  font-serif' >Avatar</label></div>
-                                <div className='flex justify-start items-center '><input onChange={handleFileChange}  name="avatar" id="avatar" autoComplete='off'   value={USER.avatar}  type="file" className='w-[100%] h-[100%] bg-transparent border-b-solid outline-none border-b-purple-300 border-b-[1px] rounded-[10px] text-white px-1'></input></div>
-                           </div>
+                           <div className="flex flex-col justify-center">
+  <div className="flex justify-start items-center">
+    <label htmlFor="avatar" className="text-white lg:text-[14px] text-[10px] font-serif">
+      Avatar
+    </label>
+  </div>
+  <div className="flex flex-col sm:flex-row justify-start items-center gap-4 mt-2 w-full">
+    <label 
+      htmlFor="avatar" 
+      className="cursor-pointer w-full  px-4 py-2 bg-purple-500 hover:bg-purple-600 text-white text-center rounded-[60px] shadow-md transition duration-200"
+    >
+      Upload Avatar
+    </label>
+    <input 
+      onChange={handleFileChange} 
+      name="avatar" 
+      id="avatar" 
+      type="file" 
+      autoComplete="off"
+      className="hidden"
+    />
+    {USER.avatar && (
+      <span className="text-sm text-gray-300 mt-2 sm:mt-0">
+        {USER.avatar.name}
+      </span>
+    )}
+  </div>
+</div>
+
                            {/* <div className='text-white lg:text-[20px] text-[15px]  flex justify-start items-start mx-[2px]' ><button onClick={handle2}>{(tog2)?<FaRegEyeSlash/>:<FaRegEye />}</button></div> */}
                       </div>
                 </div>

@@ -1,14 +1,10 @@
 import express from 'express';
-import { Medical } from '../models/medicalschema.js'; // adjust the import path as needed
-import { DonationForm } from '../models/donationFormschema.js'; // adjust the import path as needed
-import { verifyJWT } from "../middlewares/auth.middleware.js";
+import { Medical } from '../models/medicalschema.js'; 
 
 const router = express.Router();
-
-// Endpoint to get medical data by category
 router.get('/category/:category', async (req, res) => {
     try {
-        const category = req.params.category.toUpperCase(); // Ensure category is in uppercase
+        const category = req.params.category.toUpperCase(); 
         const medicalData = await Medical.find({ category: category });
         res.json(medicalData);
     } catch (error) {

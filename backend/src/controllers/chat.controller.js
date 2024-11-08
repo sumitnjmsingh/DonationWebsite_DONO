@@ -1,5 +1,7 @@
+import dotenv from "dotenv"
+dotenv.config()
 import { GoogleGenerativeAI } from "@google/generative-ai";
-const apiKey = "AIzaSyAcGIJj1VF6P2gGzdDxZ-MAWGHwIcxyHwY";
+const apiKey = process.env.GOOGLE_API_KEY;
 
 const genAI = new GoogleGenerativeAI(apiKey);
 const model = genAI.getGenerativeModel({ model: "gemini-pro" });
@@ -17,8 +19,6 @@ async function getGeminiResponse(message) {
   return response;
 }
 
-// getGeminiResponse(aboutMe);
-
 let chatHistory = []
 
 const chatController = async (req, res) => {
@@ -32,10 +32,8 @@ const chatController = async (req, res) => {
   const response = await getGeminiResponse(message);
   chatHistory.push({ message: response, sender: 'bot' });
   const { candidates } = response.response;
-//   console.log(candidates[0]);
   const { content: { parts } } = candidates[0];
   const { text } = parts[0];
-//   console.log(parts[0]);
   return res.json(text);
 };
 

@@ -1,3 +1,5 @@
+import dotenv from "dotenv"
+dotenv.config()
 import express from "express"
 const app=express();
 import cors from "cors"
@@ -7,9 +9,9 @@ import cookieParser from "cookie-parser"
 
 
 const corsOptions = {
-    origin: 'http://localhost:5173', // Replace with your frontend port
+    origin: 'http://localhost:5173', 
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true, // Allow credentials (cookies, authorization headers, TLS client certificates)
+    credentials: true, 
     allowedHeaders: 'Content-Type,Authorization'
 };
 

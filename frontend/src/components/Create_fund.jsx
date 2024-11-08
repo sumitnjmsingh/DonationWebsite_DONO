@@ -56,7 +56,6 @@ const res=await fetch("http://localhost:3000/api/users/medical",{
 });
  const data=await res.json();
   toast("Data saved Successfully")
-  // console.log(data.medical.avatar);
 
 
 };

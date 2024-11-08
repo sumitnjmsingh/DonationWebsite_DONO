@@ -42,7 +42,6 @@ const [USER,setUser]=useState({
    });
     const data=await res.json();
      toast("Data saved Successfully")
-     // console.log(data.otherCause);
    
    
    };
